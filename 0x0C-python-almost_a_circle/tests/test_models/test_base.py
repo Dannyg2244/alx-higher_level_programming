@@ -53,7 +53,7 @@ class TestBaseMethods(unittest.TestCase):
         """ Test passing more args to init method """
         with self.assertRaises(TypeError):
             new = Base(1, 1)
-            
+
     def test_access_private_attrs(self):
         """ Test accessing to private attributes """
         new = Base()
@@ -94,6 +94,7 @@ class TestBaseMethods(unittest.TestCase):
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
+
 
 if __name__ == "__main__":
     unittest.main()

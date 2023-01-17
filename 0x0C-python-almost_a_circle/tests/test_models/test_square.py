@@ -25,7 +25,7 @@ class TestSquareMethods(unittest.TestCase):
         self.assertEqual(new.x, 0)
         self.assertEqual(new.y, 0)
         self.assertEqual(new.id, 1)
-        
+
     def test_new_square_2(self):
         """ Test new square with all attrs """
         new = Square(2, 5, 5, 4)
@@ -35,7 +35,7 @@ class TestSquareMethods(unittest.TestCase):
         self.assertEqual(new.x, 5)
         self.assertEqual(new.y, 5)
         self.assertEqual(new.id, 4)
-        
+
     def test_new_squares(self):
         """ Test new squares """
         new = Square(1, 1)
@@ -52,17 +52,17 @@ class TestSquareMethods(unittest.TestCase):
         """ Test Square is a Rectangle instance """
         new = Square(1)
         self.assertEqual(True, isinstance(new, Rectangle))
-        
+
     def test_incorrect_amount_attrs(self):
         """ Test error raise with no args passed """
         with self.assertRaises(TypeError):
             new = Square()
-            
+
     def test_incorrect_amount_attrs_1(self):
         """ Test error raised with no args passed """
         with self.assertRaises(TypeError):
             new = Square(1, 1, 1, 1, 1)
-            
+
     def test_access_private_attrs(self):
         """ Trying to access to a private attribute """
         new = Square(1)
@@ -96,44 +96,44 @@ class TestSquareMethods(unittest.TestCase):
         """ Trying to pass a string value """
         with self.assertRaises(TypeError):
             new = Square(2, "2", 2, 2)
-            
+
     def test_valide_attrs_3(self):
         """ Trying to pass a string value """
         with self.assertRaises(TypeError):
             new = Square(2, 2, "2", 2)
-            
+
     def test_value_attrs(self):
         """ Trying to pass invalid values """
         with self.assertRaises(ValueError):
             new = Square(0)
-            
+
     def test_value_attrs_2(self):
         """ Trying to pass invalid values """
         with self.assertRaises(ValueError):
             new = Square(1, -1)
-            
+
     def test_value_attrs_3(self):
         """ Trying to pass invalid values """
         with self.assertRaises(ValueError):
             new = Square(1, 1, -1)
-            
+
     def test_area(self):
         """ Checking the return value of area method """
         new = Square(4)
         self.assertEqual(new.area(), 16)
-        
+
     def test_load_from_file(self):
         """ Test load JSON file """
         load_file = Square.load_from_file()
         self.assertEqual(load_file, load_file)
-        
+
     def test_area_2(self):
         """ Checking the return value of area method """
         new = Square(2)
         self.assertEqual(new.area(), 4)
         new.size = 5
         self.assertEqual(new.area(), 25)
-        
+
     def test_display(self):
         """ Test string printed """
         r1 = Square(2)
@@ -163,7 +163,7 @@ class TestSquareMethods(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(r1)
             self.assertEqual(str_out.getvalue(), res)
-            
+
     def test_str_2(self):
         """ Test __str__ return value """
         r1 = Square(3, 2, 5, 3)
@@ -171,7 +171,7 @@ class TestSquareMethods(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(r1)
             self.assertEqual(str_out.getvalue(), res)
-            
+
         r1.id = 1
         r1.size = 11
         res = "[Square] (1) 2/5 - 11\n"
@@ -192,13 +192,13 @@ class TestSquareMethods(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s2)
             self.assertEqual(str_out.getvalue(), res)
-            
+
         s3 = Square(1, 1, 1)
         res = "[Square] (3) 1/1 - 1\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s3)
             self.assertEqual(str_out.getvalue(), res)
-            
+
     def test_str_4(self):
         """ Test __str__ return value """
         s1 = Square(3)
@@ -226,18 +226,18 @@ class TestSquareMethods(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             s1.display()
             self.assertEqual(str_out.getvalue(), res)
-            
+
         s1.y = 2
         res = "\n\n ###\n ###\n ###\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             s1.display()
             self.assertEqual(str_out.getvalue(), res)
-            
+
     def test_update(self):
         """ Test update method """
         s1 = Square(3)
         res = "[Square] (1) 0/0 - 3\n"
-        
+
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
             self.assertEqual(str_out.getvalue(), res)
@@ -252,7 +252,7 @@ class TestSquareMethods(unittest.TestCase):
         """ Test update method """
         s1 = Square(3)
         res = "[Square] (1) 0/0 - 3\n"
-        
+
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
             self.assertEqual(str_out.getvalue(), res)
@@ -262,12 +262,12 @@ class TestSquareMethods(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
             self.assertEqual(str_out.getvalue(), res)
-            
+
     def test_update_3(self):
         """ Test update method """
         s1 = Square(1)
         res = "[Square] (1) 0/0 - 1\n"
-        
+
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
             self.assertEqual(str_out.getvalue(), res)
@@ -294,7 +294,7 @@ class TestSquareMethods(unittest.TestCase):
         """ Test update method """
         s1 = Square(10)
         res = "[Square] (1) 0/0 - 10\n"
-        
+
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
             self.assertEqual(str_out.getvalue(), res)
@@ -310,13 +310,13 @@ class TestSquareMethods(unittest.TestCase):
         """ Test update method """
         s1 = Square(7)
         res = "[Square] (1) 0/0 - 7\n"
-        
+
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
             self.assertEqual(str_out.getvalue(), res)
 
         dic = {'id': 10, 'x': '5', 'y': 5}
-        
+
         with self.assertRaises(TypeError):
             s1.update(**dic)
 
@@ -334,9 +334,9 @@ class TestSquareMethods(unittest.TestCase):
         self.assertEqual(s1.x, 2)
         self.assertEqual(s1.y, 3)
         self.assertEqual(s1.id, 1)
-        
+
         res = "<class 'dict'>\n"
-        
+
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(type(s1.to_dictionary()))
             self.assertEqual(str_out.getvalue(), res)
@@ -398,9 +398,9 @@ class TestSquareMethods(unittest.TestCase):
 
         with open("Square.json", "r") as file:
             res2 = file.read()
-        
+
         self.assertEqual(res, res2)
-        
+
     def test_value_square(self):
         """ Test value pased to Square """
         with self.assertRaises(ValueError):
@@ -418,7 +418,7 @@ class TestSquareMethods(unittest.TestCase):
         s1 = Rectangle.create(**dictionary)
         self.assertEqual(s1.id, 89)
         self.assertEqual(s1.size, 1)
-        
+
     def test_create_3(self):
         """ Test create method """
         dictionary = {'id': 89, 'size': 1, 'x': 2}
@@ -426,7 +426,7 @@ class TestSquareMethods(unittest.TestCase):
         self.assertEqual(s1.id, 89)
         self.assertEqual(s1.size, 1)
         self.assertEqual(s1.x, 2)
-        
+
     def test_create_4(self):
         """ Test create method """
         dictionary = {'id': 89, 'size': 1, 'x': 2, 'y': 3}
@@ -444,9 +444,10 @@ class TestSquareMethods(unittest.TestCase):
         linput = [s1, s2]
         Square.save_to_file(linput)
         loutput = Square.load_from_file()
-        
+
         for i in range(len(linput)):
             self.assertEqual(linput[i].__str__(), loutput[i].__str__())
+
 
 if __name__ == "__main":
     unittest.main()

@@ -3,6 +3,8 @@
 inheritance of class Base
 """
 from models.base import Base
+
+
 class Rectangle(Base):
     """ initializes instances"""
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -11,7 +13,7 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
         super().__init__(id)
-        
+
     @property
     def width(self):
         """width getter"""
@@ -82,7 +84,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """str method"""
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width} / {self.__height}"
+        return f"[Rectangle]({self.id}) {self.__x} / {self.__y} -
+        {self.__width} / {self.__height}"
 
     def update(self, *args, **kwargs):
         """assign an argument to each attribute"""
@@ -101,5 +104,5 @@ class Rectangle(Base):
 
         for key in list_a:
             dict_a[key] = getattr(self, key)
-            
+
         return dict_a

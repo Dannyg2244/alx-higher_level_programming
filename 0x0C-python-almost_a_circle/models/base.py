@@ -4,9 +4,11 @@ import json
 import csv
 import os.path
 
+
 class Base:
     """A class Base"""
     __nb_objects = 0
+
     def __init__(self, id=None):
         """initializing instances"""
         if id is not None:
@@ -15,13 +17,13 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-
     @staticmethod
     def to_json_string(list_dictionaries):
         """ List to JSON string """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-        if (type(list_dictionaries) != list or not all(type(i) == dict for i in list_dictionaries)):
+        if (type(list_dictionaries) != list or not all
+                (type(i) == dict for i in list_dictionaries)):
             raise TypeError("list_dictionaries must be a list of dictionaries")
         return json.dumps(list_dictionaries)
 
@@ -35,7 +37,6 @@ class Base:
             else:
                 list_dicts = [o.to_dictionary() for o in list_objs]
                 jsonfile.write(Base.to_json_string(list_dicts))
-
 
     @staticmethod
     def from_json_string(json_string):
@@ -115,7 +116,7 @@ class Base:
         list_keys = ['id', 'width', 'height', 'x', 'y']
     else:
         list_keys = ['id', 'size', 'x', 'y']
-                    
+
         matrix = []
 
     for csv_elem in csv_list:
