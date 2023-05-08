@@ -1,3 +1,7 @@
 #!/usr/bin/python3
-def magic_calculation(a,b):
-    return 98 + (a ** b)
+import dis
+
+def magic_calculation(a, b):
+    x = a ** b
+    y = x + 98
+    return y
