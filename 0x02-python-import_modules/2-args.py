@@ -14,7 +14,6 @@ if __name__ == "__main__":
             print("1 argument:")
         else:
             print(f"{num_args} arguments:")
-            
+
             for i, arg in enumerate(args):
                 print(f"{i+1}: {arg}")
-                                        
